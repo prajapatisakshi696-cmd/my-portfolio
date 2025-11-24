@@ -1,0 +1,5 @@
+.skills-grid { display:grid; gap:12px; }
+.skill-card { padding:12px; background:var(--card); border-radius:10px; box-shadow: 0 6px 18px rgba(16,24,40,0.04); }
+.skill-info { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; color:var(--muted) }
+.skill-bar{ height:10px; background:#f1f5f9; border-radius:10px; overflow:hidden }
+.skill-fill{ height:100%; background:linear-gradient(90deg,var(--accent), var(--accent-2)); transition:width 1s ease; }
