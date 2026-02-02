@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./Contact.css";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
-  const change = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const change = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const validate = () => {
     const err = {};
@@ -25,32 +25,89 @@ export default function Contact() {
       setSuccess(true);
       setForm({ name: "", email: "", message: "" });
       setTimeout(() => setSuccess(false), 3000);
-      // integrate backend / email service here if needed
     }
   };
 
   return (
-    <section id="contact" className="contact section">
-      <div className="container">
-        <h2>Contact</h2>
-        {success && <div className="success">✅ Message sent successfully</div>}
+    <section
+      id="contact"
+      className="bg-gray-950 text-white py-20 px-6"
+    >
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center">
+          Contact Me
+        </h2>
 
-        <form className="contact-form" onSubmit={handleSubmit} noValidate>
-          <label>Name</label>
-          <input name="name" value={form.name} onChange={change} />
-          {errors.name && <small className="err">{errors.name}</small>}
+        {success && (
+          <div className="mt-6 text-center text-green-400 font-medium">
+            ✅ Message sent successfully
+          </div>
+        )}
 
-          <label>Email</label>
-          <input name="email" value={form.email} onChange={change} />
-          {errors.email && <small className="err">{errors.email}</small>}
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="mt-10 bg-gray-900 p-8 rounded-2xl shadow-lg space-y-6"
+        >
+          {/* Name */}
+          <div>
+            <label className="block mb-2 text-sm text-gray-300">
+              Name
+            </label>
+            <input
+              name="name"
+              value={form.name}
+              onChange={change}
+              className="w-full px-4 py-3 rounded-xl bg-gray-800 text-white
+                         focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            {errors.name && (
+              <small className="text-red-400">{errors.name}</small>
+            )}
+          </div>
 
-          <label>Message</label>
-          <textarea name="message" value={form.message} onChange={change} />
-          {errors.message && <small className="err">{errors.message}</small>}
+          {/* Email */}
+          <div>
+            <label className="block mb-2 text-sm text-gray-300">
+              Email
+            </label>
+            <input
+              name="email"
+              value={form.email}
+              onChange={change}
+              className="w-full px-4 py-3 rounded-xl bg-gray-800 text-white
+                         focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            {errors.email && (
+              <small className="text-red-400">{errors.email}</small>
+            )}
+          </div>
 
-          <button type="submit" className="animated-btn">
-            <span className="btn-text">Send Message</span>
-            <span className="btn-anim" aria-hidden></span>
+          {/* Message */}
+          <div>
+            <label className="block mb-2 text-sm text-gray-300">
+              Message
+            </label>
+            <textarea
+              name="message"
+              rows="4"
+              value={form.message}
+              onChange={change}
+              className="w-full px-4 py-3 rounded-xl bg-gray-800 text-white
+                         focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
+            />
+            {errors.message && (
+              <small className="text-red-400">{errors.message}</small>
+            )}
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-indigo-500
+                       hover:bg-indigo-600 transition font-semibold"
+          >
+            Send Message
           </button>
         </form>
       </div>

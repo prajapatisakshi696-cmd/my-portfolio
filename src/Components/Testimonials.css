@@ -1,4 +1,0 @@
-.test-grid{ display:flex; gap:16px; flex-wrap:wrap; }
-.test-card{ flex:1; min-width:220px; padding:16px; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff); box-shadow:0 8px 24px rgba(16,24,40,0.04); }
-.test-card p{ margin:0 0 8px; color:var(--muted) }
-.test-card h4{ margin:0; color:var(--accent) }
