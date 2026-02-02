@@ -1,15 +1,16 @@
 import React, { createContext, useState } from "react";
-import About from './Components/About';
-import BackToTop from './Components/BackToTop';
-import Contact from './Components/Contact';
-import Hero from './Components/Hero';
-import Footer from './Components/Footer';
-import Navbar from './Components/Navbar';
-import Projects from './Components/Projects';
-import Skills from './Components/Skills';
-import Testimonials from './Components/Testimonials';
-import './App.css';
 
+// Components
+import Navbar from "./Components/Navbar";
+import Hero from "./Components/Hero";
+import Skills from "./Components/Skills";
+import Projects from "./Components/Projects";
+import Testimonials from "./Components/Testimonials";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
+import BackToTop from "./Components/BackToTop";
+
+// Theme Context
 export const ThemeContext = createContext();
 
 function App() {
@@ -17,15 +18,24 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Projects/>
-      <Testimonials/>
-      <Skills/>
-      <Contact/>
-      <Footer/>
-      <BackToTop/>
+      <div
+        className={`min-h-screen font-sans ${
+          theme === "purple" ? "text-white" : "text-white"
+        }`}
+      >
+        <Navbar />
+
+        <main className="pt-20">
+          <Hero />
+          <Skills />
+          <Projects />
+          <Testimonials />
+          <Contact />
+        </main>
+
+        <Footer />
+        <BackToTop />
+      </div>
     </ThemeContext.Provider>
   );
 }
