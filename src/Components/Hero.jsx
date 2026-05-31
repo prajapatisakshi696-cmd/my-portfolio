@@ -27,7 +27,7 @@ export default function Hero() {
       id="hero"
       className="min-h-screen bg-gray-950 text-white flex items-center px-6"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl h-[100vh] mx-auto grid md:grid-cols-2 gap-5 items-center">
         
         {/* LEFT */}
         <div className="space-y-6">

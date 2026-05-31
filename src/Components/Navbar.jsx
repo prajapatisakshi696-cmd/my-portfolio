@@ -21,7 +21,7 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <nav className="hidden md:flex gap-8 text-gray-300">
-          {["hero", "about", "skills", "projects", "contact"].map((item) => (
+          {[ "skills", "projects", "contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
