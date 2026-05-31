@@ -18,9 +18,9 @@ export default function About() {
               <li>Languages: English, Hindi</li>
             </ul>
           </div>
-          <div className="about-photo">
+          {/* <div className="about-photo">
             <img src="/profile.jpg" alt="profile" onError={(e)=>{e.target.style.display='none'}}/>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

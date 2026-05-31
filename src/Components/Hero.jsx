@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Hero() {
-  const phrases = ["Frontend Developer", "React Enthusiast", "Web Designer"];
+  const phrases = ["Frontend Developer", "React Enthusiast", "Web Developer"];
   const [txt, setTxt] = useState("");
   const [pi, setPi] = useState(0);
   const [char, setChar] = useState(0);
@@ -51,7 +51,7 @@ export default function Hero() {
           {/* Buttons */}
           <div className="flex gap-4 flex-wrap pt-4">
             <a
-              href="/resume.pdf"
+              href="/sakshi_resume - Sakshi Prajapati.pdf"
               download
               className="px-6 py-3 rounded-xl border border-indigo-500
                          hover:bg-indigo-500 transition duration-300"
@@ -69,11 +69,34 @@ export default function Hero() {
           </div>
 
           {/* Socials */}
-          <div className="flex gap-6 pt-4 text-gray-400">
-            <a href="#" className="hover:text-white transition">LinkedIn</a>
-            <a href="#" className="hover:text-white transition">GitHub</a>
-            <a href="#" className="hover:text-white transition">Instagram</a>
-          </div>
+      <div className="flex gap-6 pt-4 text-gray-400">
+  <a
+    href="https://www.linkedin.com/in/sakshi-rodhia"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition"
+  >
+    LinkedIn
+  </a>
+
+  <a
+    href="https://github.com/prajapatisakshi696-cmd"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition"
+  >
+    GitHub
+  </a>
+
+  {/* <a
+    href="https://www.instagram.com/your-instagram-username"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition"
+  >
+    Instagram
+  </a> */}
+</div>
         </div>
 
         {/* RIGHT */}
@@ -81,7 +104,7 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute inset-0 rounded-2xl bg-indigo-500 blur-2xl opacity-30 animate-pulse"></div>
 
-            <div className="relative w-64 h-64 rounded-2xl bg-gray-800 overflow-hidden shadow-xl">
+            {/* <div className="relative w-64 h-64 rounded-2xl bg-gray-800 overflow-hidden shadow-xl">
               <img
                 src="/profile.jpg"
                 alt="profile"
@@ -90,7 +113,7 @@ export default function Hero() {
                   e.target.style.display = "none";
                 }}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
