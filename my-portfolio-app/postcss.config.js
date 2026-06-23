@@ -1,7 +1,9 @@
-// filepath: c:\Users\Shakshi\OneDrive\Desktop\Myportfolio\my-portfolio-app\postcss.config.js
-module.exports = {
+// export const plugins = {
+//   tailwindcss: {},
+//   autoprefixer: {},
+// };
+export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    "@tailwindcss/postcss": {},
   },
-}
+};

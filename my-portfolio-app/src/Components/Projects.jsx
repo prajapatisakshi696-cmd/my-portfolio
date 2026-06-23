@@ -3,20 +3,23 @@ import React from "react";
 export default function Projects() {
   const projects = [
     {
-      title: "Todo App",
-      desc: "A task manager with add/edit/delete features using React hooks.",
-      tech: ["React", "Hooks", "CSS"],
+      title: "Shopping Cart Website",
+      desc: "A modern e-commerce shopping cart application with product listing, cart management, quantity updates, and a responsive user interface.",
+      github: "https://github.com/prajapatisakshi696-cmd/shoppingcart-",
+      live: "https://shoppingcart-kappa-mocha.vercel.app/",
     },
-    {
-      title: "Weather App",
-      desc: "Shows weather using a public API with search functionality.",
-      tech: ["React", "Fetch API"],
-    },
-    {
-      title: "Calculator",
-      desc: "Simple calculator built with JavaScript and styled components.",
-      tech: ["JS", "HTML", "CSS"],
-    },
+      {
+    title: "Travel Package Explorer",
+    desc: "A responsive travel booking interface where users can explore travel destinations, view package details, and discover curated travel experiences through a modern and user-friendly design.",
+    github: "https://github.com/prajapatisakshi696-cmd/travel-package-explorer",
+    live: "https://travel-package-explorer.vercel.app/",
+  },
+      {
+    title: "fetch-user-using-api",
+    desc: "A React application that fetches user data from an API and displays it in a user-friendly interface, demonstrating API integration and dynamic data rendering.",
+    github: "https://github.com/prajapatisakshi696-cmd/fetch-user-using-api",
+    live: "https://fetch-user-using-api.vercel.app/",
+  },
   ];
 
   return (
@@ -25,55 +28,41 @@ export default function Projects() {
       className="bg-gray-950 text-white py-20 px-6"
     >
       <div className="max-w-6xl mx-auto">
-        
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Projects
         </h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <article
               key={i}
-              className="bg-gray-900 rounded-2xl p-6 shadow-lg
-                         hover:-translate-y-2 transition duration-300"
+              className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-lg hover:-translate-y-2 hover:border-indigo-500 transition duration-300"
             >
-              <h3 className="text-xl font-semibold mb-3">
+              <h3 className="text-2xl font-semibold mb-4">
                 {p.title}
               </h3>
 
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 {p.desc}
               </p>
 
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {p.tech.map((t, idx) => (
-                  <span
-                    key={idx}
-                    className="text-xs px-3 py-1 rounded-full
-                               bg-gray-800 text-gray-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {/* Actions */}
-              <div className="flex gap-4">
+              <div className="flex gap-3">
                 <a
-                  href="#"
-                  className="px-4 py-2 text-sm rounded-lg
-                             bg-indigo-500 hover:bg-indigo-600 transition"
+                  href={p.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition"
                 >
-                  View
+                  Live Demo
                 </a>
 
                 <a
-                  href="#"
-                  className="px-4 py-2 text-sm rounded-lg
-                             border border-gray-600 hover:bg-gray-800 transition"
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 border border-gray-600 rounded-lg hover:bg-gray-800 transition"
                 >
-                  Code
+                  GitHub
                 </a>
               </div>
             </article>

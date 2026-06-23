@@ -1,96 +1,150 @@
 import React, { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
-  const phrases = ["Frontend Developer", "React Enthusiast", "Web Designer"];
-  const [txt, setTxt] = useState("");
-  const [pi, setPi] = useState(0);
-  const [char, setChar] = useState(0);
+  const phrases = [
+    "MERN Stack Developer",
+    "Frontend Developer",
+    "React Developer",
+    "Problem Solver",
+  ];
+
+  const [text, setText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      setTxt(phrases[pi].slice(0, char));
-      setChar((c) => c + 1);
+    const currentPhrase = phrases[phraseIndex];
 
-      if (char > phrases[pi].length) {
-        setTimeout(() => {
-          setChar(0);
-          setPi((p) => (p + 1) % phrases.length);
-        }, 800);
-      }
-    }, 80);
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          setText(currentPhrase.substring(0, text.length + 1));
 
-    return () => clearInterval(t);
-  }, [char, pi]);
+          if (text === currentPhrase) {
+            setTimeout(() => setIsDeleting(true), 1200);
+          }
+        } else {
+          setText(currentPhrase.substring(0, text.length - 1));
+
+          if (text === "") {
+            setIsDeleting(false);
+            setPhraseIndex((prev) => (prev + 1) % phrases.length);
+          }
+        }
+      },
+      isDeleting ? 50 : 100
+    );
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, phraseIndex]);
 
   return (
     <section
       id="hero"
-      className="min-h-screen bg-gray-950 text-white flex items-center px-6"
+      className="min-h-screen bg-gray-950 text-white flex items-center pt-20 px-6"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
         
-        {/* LEFT */}
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Hello, I’m{" "}
+        {/* LEFT SIDE */}
+        <div>
+          <p className="text-indigo-400 font-medium mb-3">
+            Welcome To My Portfolio
+          </p>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            Hi, I'm{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
-              Sakshi
+              Sakshi Prajapati
             </span>
           </h1>
 
-          <h3 className="text-2xl md:text-3xl font-semibold text-gray-300 h-10">
-            {txt}
-            <span className="ml-1 text-indigo-500 animate-pulse">|</span>
-          </h3>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300 mt-6 h-10">
+            {text}
+            <span className="text-indigo-500 animate-pulse">|</span>
+          </h2>
 
-          <p className="text-gray-400 max-w-md">
-            I build modern, responsive and user-friendly websites using
-            React and Tailwind CSS.
+          <p className="text-gray-400 text-lg leading-relaxed max-w-xl mt-6">
+            MERN Stack Developer with hands-on experience building responsive
+            web applications using React, Node.js, Express.js, and MongoDB.
+            Passionate about creating clean user interfaces, solving problems,
+            and developing scalable full-stack solutions.
           </p>
 
+          {/* Stats */}
+          <div className="flex flex-wrap gap-8 mt-8">
+            <div>
+              <h3 className="text-2xl font-bold text-indigo-400">10+</h3>
+              <p className="text-gray-400 text-sm">Projects</p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-indigo-400">3 Months</h3>
+              <p className="text-gray-400 text-sm">Internship</p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-indigo-400">MERN</h3>
+              <p className="text-gray-400 text-sm">Stack</p>
+            </div>
+          </div>
+
           {/* Buttons */}
-          <div className="flex gap-4 flex-wrap pt-4">
+          <div className="flex flex-wrap gap-4 mt-8">
             <a
-              href="/resume.pdf"
+              href="/sakshi_resume.pdf"
               download
-              className="px-6 py-3 rounded-xl border border-indigo-500
-                         hover:bg-indigo-500 transition duration-300"
+              className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 transition duration-300 font-medium"
             >
               Download Resume
             </a>
 
             <a
               href="#projects"
-              className="px-6 py-3 rounded-xl bg-indigo-500
-                         hover:bg-indigo-600 transition duration-300"
+              className="px-6 py-3 rounded-xl border border-gray-600 hover:border-indigo-500 hover:text-indigo-400 transition duration-300 font-medium"
             >
               View Projects
             </a>
           </div>
 
-          {/* Socials */}
-          <div className="flex gap-6 pt-4 text-gray-400">
-            <a href="#" className="hover:text-white transition">LinkedIn</a>
-            <a href="#" className="hover:text-white transition">GitHub</a>
-            <a href="#" className="hover:text-white transition">Instagram</a>
+          {/* Social Links */}
+          <div className="flex gap-6 mt-8 text-2xl">
+            <a
+              href="https://github.com/prajapatisakshi696-cmd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition"
+            >
+              <FaGithub />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/sakshi-rodhia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-400 transition"
+            >
+              <FaLinkedin />
+            </a>
           </div>
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT SIDE */}
         <div className="flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 rounded-2xl bg-indigo-500 blur-2xl opacity-30 animate-pulse"></div>
+            
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-indigo-500 blur-3xl opacity-20 rounded-full"></div>
 
-            <div className="relative w-64 h-64 rounded-2xl bg-gray-800 overflow-hidden shadow-xl">
-              <img
-                src="/profile.jpg"
-                alt="profile"
-                className="w-full h-full object-cover hover:scale-110 transition duration-500"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                }}
-              />
-            </div>
+            {/* Profile Image */}
+            <img
+              src="/profile.jpg"
+              alt="Sakshi Prajapati"
+              className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-indigo-500 shadow-2xl"
+              onError={(e) => {
+                e.target.style.display = "none";
+              }}
+            />
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ function App() {
       >
         <Navbar />
 
-        <main className="pt-20">
+        <main className="pt-16">
           <Hero />
           <Skills />
           <Projects />
@@ -41,3 +41,10 @@ function App() {
 }
 
 export default App;
+
+
+// function App() {
+//   return <h1>Portfolio Test</h1>;
+// }
+
+// export default App;
