@@ -11,7 +11,7 @@ import Footer from "./Components/Footer";
 import BackToTop from "./Components/BackToTop";
 
 // GSAP scroll animations (put the file in src/hooks/)
-import useGsapAnimations from "./hooks/useGsapAnimations";
+import useGsapAnimations from "./hooks/UseGsapAnimations";
 
 // Theme Context (kept so Navbar's theme toggle keeps working)
 export const ThemeContext = createContext({
