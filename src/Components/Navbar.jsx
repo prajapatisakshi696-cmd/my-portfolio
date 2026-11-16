@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { FaBars, FaTimes, FaDownload } from "react-icons/fa";
+import {
+  FaBars, FaTimes, FaDownload, FaHome, FaUser, FaLaptopCode, FaCode, FaEnvelope, FaArrowRight,
+} from "react-icons/fa";
 
 const LINKS = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "Home", Icon: FaHome },
+  { id: "about", label: "About", Icon: FaUser },
+  { id: "projects", label: "Projects", Icon: FaLaptopCode },
+  { id: "skills", label: "Skills", Icon: FaCode },
+  { id: "contact", label: "Contact", Icon: FaEnvelope },
 ];
 
 const RESUME_URL = "/Sakshi-resume.pdf";
@@ -99,23 +101,23 @@ export default function Navbar() {
         </button>
 
         {/* Desktop links */}
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          {LINKS.map(({ id, label }) => (
+        <nav
+          className="hidden items-center gap-1 md:flex"
+          aria-label="Primary"
+        >
+          {LINKS.map(({ id, label, Icon }) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
               aria-current={active === id ? "page" : undefined}
-              className={`relative rounded-lg px-4 py-2 text-sm font-medium transition ${focusRing} ${
-                active === id ? "text-white" : "text-gray-400 hover:text-white"
+              className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium transition ${focusRing} ${
+                active === id
+                  ? "border-purple-400/50 bg-purple-500/25 text-white shadow-[0_0_18px_rgba(168,85,247,0.35)]"
+                  : "border-transparent text-gray-400 hover:text-white"
               }`}
             >
+              <Icon aria-hidden="true" className="text-xs" />
               {label}
-              <span
-                aria-hidden="true"
-                className={`absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-transform duration-300 ${
-                  active === id ? "scale-x-100" : "scale-x-0"
-                }`}
-              />
             </button>
           ))}
         </nav>
@@ -134,7 +136,10 @@ export default function Navbar() {
             onClick={() => scrollTo("contact")}
             className={`rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-purple-900/40 transition hover:brightness-110 ${focusRing}`}
           >
-            Let&apos;s Talk
+            <span className="inline-flex items-center gap-2">
+              Let&apos;s Talk
+              <FaArrowRight className="text-xs" />
+            </span>
           </button>
         </div>
 

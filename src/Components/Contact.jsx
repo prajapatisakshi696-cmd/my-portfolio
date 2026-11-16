@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 // ---- EDIT THESE ----
-// Placeholder: replace with your real email address.
-const EMAIL = "your-email@example.com";
+const EMAIL = "sakshiprajapati696@gmail.com";
 // Optional: paste a Formspree endpoint (https://formspree.io) to receive
 // messages by email without a backend, e.g. "https://formspree.io/f/xxxxxxx".
 // If left empty, the form opens the visitor's email app instead.
@@ -89,7 +88,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden bg-[#050510] py-20 px-6 text-white"
+      className="relative scroll-mt-24 overflow-hidden py-20 px-6 text-white"
     >
       <div
         aria-hidden="true"

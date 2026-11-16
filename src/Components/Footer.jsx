@@ -1,9 +1,10 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
- 
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
 const GITHUB_URL = "https://github.com/prajapatisakshi696-cmd";
+const EMAIL = "sakshiprajapati696@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/sakshi-rodhia";
- 
+
 const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
@@ -11,12 +12,12 @@ const LINKS = [
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
- 
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
- 
+
   return (
-    <footer className="border-t border-purple-500/20 bg-[#050510] text-gray-400">
+    <footer className="border-t border-purple-500/20 bg-[#050510]/60 text-gray-400 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-3 items-center">
         {/* Identity */}
         <div className="text-center md:text-left">
@@ -25,7 +26,7 @@ export default function Footer() {
           </p>
           <p className="mt-1 text-sm">Full Stack Web Developer</p>
         </div>
- 
+
         {/* Quick links */}
         <nav
           aria-label="Footer"
@@ -41,7 +42,7 @@ export default function Footer() {
             </a>
           ))}
         </nav>
- 
+
         {/* Social */}
         <div className="flex justify-center md:justify-end gap-5 text-2xl">
           <a
@@ -62,9 +63,16 @@ export default function Footer() {
           >
             <FaLinkedin />
           </a>
+          <a
+            href={`mailto:${EMAIL}`}
+            aria-label="Email me"
+            className="transition hover:text-fuchsia-400 focus:outline-none focus-visible:text-fuchsia-400"
+          >
+            <FaEnvelope />
+          </a>
         </div>
       </div>
- 
+
       <div className="border-t border-white/5 py-4 text-center text-xs text-gray-500">
         © {currentYear} Sakshi Prajapati. All rights reserved.
       </div>

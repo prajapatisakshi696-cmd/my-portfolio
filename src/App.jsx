@@ -25,7 +25,16 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className="min-h-screen bg-[#050510] font-sans text-white">
+      <div className="relative isolate min-h-screen bg-[#050510] font-sans text-white">
+        {/* One shared purple glow canvas behind every section */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 45% at 85% 0%, rgba(124,58,237,0.38), transparent 60%), radial-gradient(ellipse 50% 45% at 0% 45%, rgba(168,85,247,0.22), transparent 60%), radial-gradient(ellipse 60% 45% at 100% 85%, rgba(217,70,239,0.2), transparent 60%)",
+          }}
+        />
         {/* Scroll progress bar */}
         <div
           id="scroll-progress"
@@ -35,7 +44,7 @@ function App() {
 
         <Navbar />
 
-        <main>
+        <main className="relative z-10">
           <Hero />
           <About />
           <Projects />
