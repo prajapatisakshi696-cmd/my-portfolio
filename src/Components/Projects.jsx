@@ -13,14 +13,14 @@ const PROJECTS = [
     github: "https://github.com/prajapatisakshi696-cmd/Memories",
     live: "https://memories-13ld.vercel.app",
   },
-  {
-    title: "Shopping Cart Application",
-    desc: "E-commerce cart with product listing, quantity updates, and a responsive interface.",
-    tags: ["React.js", "Tailwind CSS"],
-    image: "/projects/shopping-cart.png",
-    github: "https://github.com/prajapatisakshi696-cmd/shoppingcart-",
-    live: "https://shoppingcart-kappa-mocha.vercel.app/",
-  },
+  // {
+  //   title: "Shopping Cart Application",
+  //   desc: "E-commerce cart with product listing, quantity updates, and a responsive interface.",
+  //   tags: ["React.js", "Tailwind CSS"],
+  //   image: "/projects/shopping-cart.png",
+  //   github: "https://github.com/prajapatisakshi696-cmd/shoppingcart-",
+  //   live: "https://shoppingcart-kappa-mocha.vercel.app/",
+  // },
   // {
   //   title: "Travel Package Explorer",
   //   desc: "Explore destinations and view package details in an interactive, responsive layout.",
